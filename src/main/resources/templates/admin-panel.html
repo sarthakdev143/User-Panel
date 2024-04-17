@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        .admin-wrapper {
+            width: 70%;
+            height: fit-content;
+
+            table {
+                width: 100%;
+                height: 100%;
+
+                td {
+                    text-align: center;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="admin-wrapper">
+            <header class="admin-header">
+                <h1>Admin Panel</h1>
+            </header>
+
+            <main>
+                <table>
+                    <thead>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <!-- <th>Action</th> -->
+                    </thead>
+                    <tbody>
+                        <tr th:each="user : ${userList}">
+                            <td th:text="${user.id}"></td>
+                            <td th:text="${user.fullName}"></td>
+                            <td th:text="${user.email}"></td>
+                            <td th:text="${user.username}"></td>
+                            <td th:text="${user.password}"></td>
+                            <!-- <td class="action">
+                                <a class="edit" th:href="@{/edit/{id}(id=${user.id})}">Edit</a>
+                                <span>|</span>
+                                <a class="delete" th:href="@{/delete/{id}(id=${user.id})}">Delete</a>
+                            </td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </main>
+            <!-- 
+            <footer class="admin-footer">
+                <p>&copy; 2024 Admin Panel. All rights reserved.</p>
+            </footer> -->
+        </div>
+        <br>
+        <div class="admin-logout">
+            <a th:href="@{/logout}">Logout</a>
+        </div>
+    </center>
+    <script th:src="@{/make-up/script.js}"></script>
+</body>
+
+</html>

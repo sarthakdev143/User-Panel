@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Panel</title>
+    <link rel="stylesheet" href="/make-up/profile.css">
+    <link rel="stylesheet" href="/make-up/littles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3>User Panel</h3>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                <div class="header-content">
+                    <h1>Welcome, <span title="Username" th:text="${userInfo.fullName}"></span></h1>
+                    <div class="right">
+                        <div class="icons user-select-none">
+                            <span title="Toggle Light Mode" class="sun material-symbols-outlined theme-toggle">
+                                brightness_medium
+                            </span>
+                            <span title="Toggle Dark Mode" style="display: none;" class="moon material-symbols-outlined theme-toggle">
+                                dark_mode
+                            </span>
+                        </div>
+                        <a href="#" class="btn btn-settings">Settings</a>
+                    </div>
+                </div>
+            </header>
+
+            <main class="container">
+                <!-- Profile Section -->
+                <section id="profile" class="profile">
+                    <h2>Profile</h2>
+                    <div class="profile-content">
+                        <div class="profile-picture">
+                            <img title="Profile Picture"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGaTvWagE20EQhife1-kbCiBEyjRbp5IvQYIx56bnH5CoO8tzczdiABzAITZqSlX3_c30&usqp=CAU"
+                                alt="Profile Picture">
+                        </div>
+                        <div class="profile-details">
+                            <div class="details">
+                                <h3 title="Full Name" th:text="${userInfo.fullName}"></h3>
+                                <p title="Username" th:text="${userInfo.username}"></p>
+                                <!-- <p title="Email" th:text="${userInfo.email}"></p> -->
+                            </div>
+                            <a href="#Edit_Profile" class="btn edit-profile">Edit Profile</a>
+                            <a th:href="@{/logout}" class="btn btn-logout">Logout</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="profile-editing-ui-div">
+                
+            </div>
+
+            <footer class="footer">
+                <p>&copy; 2024 User Panel. All rights reserved. <a
+                        href="https://github.com/sarthakdev143">sarthakdev143</a></p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/make-up/script.js"></script>
+</body>
+
+</html>

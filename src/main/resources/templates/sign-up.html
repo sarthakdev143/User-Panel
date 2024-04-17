@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Create Account</title>
+    <link rel="stylesheet" href="/make-up/login.css">
+</head>
+
+<body>
+    <main>
+        <h1>Sign Up</h1>
+        <form th:action="@{/create-account}" th:object="${signupObject}" method="post">
+            <input type="text" placeholder="Username" th:field="*{username}" required>
+            <input type="text" placeholder="Full Name" th:field="*{fullName}" required>
+            <input type="email" placeholder="Email" th:field="*{email}" required>
+            <input type="password" placeholder="Password" th:field="*{password}" required>
+            <button type="submit">Create Account</button>
+        </form>
+        <div class="login-div">
+            <p>Already have an Account? <a th:href="@{/nav-to-login}">Login</a></p>
+        </div>
+    </main>
+</body>
+
+</html>
