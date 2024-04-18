@@ -22,5 +22,5 @@ public class PanelBean {
     String fullName;
     String email;
     String password;
-    // byte[] imageData;
+    byte[] imageData;
 }

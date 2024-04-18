@@ -57,7 +57,8 @@ public class ExtraCont {
             model.addAttribute("userInfo", panelBean); // Add username to the model
             return "profile"; // Redirect to profile page after successful login
         } else {
-            model.addAttribute("error", "Invalid username or password");
+            String messege = "Invalid username or password";
+            model.addAttribute("error", messege);
             return "redirect:/"; // Return to login form with error message
         }
     }

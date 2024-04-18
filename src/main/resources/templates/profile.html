@@ -33,7 +33,8 @@
                             <span title="Toggle Light Mode" class="sun material-symbols-outlined theme-toggle">
                                 brightness_medium
                             </span>
-                            <span title="Toggle Dark Mode" style="display: none;" class="moon material-symbols-outlined theme-toggle">
+                            <span title="Toggle Dark Mode" style="display: none;"
+                                class="moon material-symbols-outlined theme-toggle">
                                 dark_mode
                             </span>
                         </div>
@@ -66,7 +67,13 @@
             </main>
 
             <div id="profile-editing-ui-div">
-                
+                <span class="close material-symbols-outlined">
+                    close
+                </span>
+                <form action="/uploadProfilePicture" method="post" enctype="multipart/form-data">
+                    <input type="file" name="profilePicture" accept="image/*">
+                    <button type="submit">Upload</button>
+                </form>
             </div>
 
             <footer class="footer">

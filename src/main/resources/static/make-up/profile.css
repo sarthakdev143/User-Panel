@@ -274,3 +274,23 @@ body {
         transform: translateY(0);
     }
 }
+
+#profile-editing-ui-div {
+    width: 80%;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: var(--darkBg);
+    --padding: 4rem;
+    padding: var(--padding);
+    box-sizing: border-box;
+
+    .close {
+        position: absolute;
+        top: var(--padding);
+        right: var(--padding);
+    }
+}
