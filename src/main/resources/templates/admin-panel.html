@@ -37,6 +37,7 @@
                         <th>Email</th>
                         <th>Username</th>
                         <th>Password</th>
+                        <th>Profile Picture</th>
                         <!-- <th>Action</th> -->
                     </thead>
                     <tbody>
@@ -46,6 +47,7 @@
                             <td th:text="${user.email}"></td>
                             <td th:text="${user.username}"></td>
                             <td th:text="${user.password}"></td>
+                            <td th:text="${user.profilePic}"></td>
                             <!-- <td class="action">
                                 <a class="edit" th:href="@{/edit/{id}(id=${user.id})}">Edit</a>
                                 <span>|</span>

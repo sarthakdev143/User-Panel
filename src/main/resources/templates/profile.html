@@ -43,44 +43,49 @@
                 </div>
             </header>
 
+            <!-- Profile Section -->
             <main class="container">
-                <!-- Profile Section -->
                 <section id="profile" class="profile">
                     <h2>Profile</h2>
                     <div class="profile-content">
                         <div class="profile-picture">
-                            <img title="Profile Picture"
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGaTvWagE20EQhife1-kbCiBEyjRbp5IvQYIx56bnH5CoO8tzczdiABzAITZqSlX3_c30&usqp=CAU"
-                                alt="Profile Picture">
+                            <img src="/img/default-pic.webp" alt="ProPic.">
                         </div>
                         <div class="profile-details">
                             <div class="details">
                                 <h3 title="Full Name" th:text="${userInfo.fullName}"></h3>
-                                <p title="Username" th:text="${userInfo.username}"></p>
-                                <!-- <p title="Email" th:text="${userInfo.email}"></p> -->
+                                <div class="div" style="display: flex; gap: 1rem;">
+                                    <p title="Username" th:text="${userInfo.username}"></p>
+                                    <p title="Email" th:text="${userInfo.email}"></p>
+                                </div>
                             </div>
-                            <a href="#Edit_Profile" class="btn edit-profile">Edit Profile</a>
+                            <a onclick="showProfileEditingPanel()" href="#" class="btn edit-profile">Edit Profile</a>
                             <a th:href="@{/logout}" class="btn btn-logout">Logout</a>
                         </div>
                     </div>
                 </section>
             </main>
-
-            <div id="profile-editing-ui-div">
-                <span class="close material-symbols-outlined">
-                    close
-                </span>
-                <form action="/uploadProfilePicture" method="post" enctype="multipart/form-data">
-                    <input type="file" name="profilePicture" accept="image/*">
-                    <button type="submit">Upload</button>
-                </form>
-            </div>
-
-            <footer class="footer">
-                <p>&copy; 2024 User Panel. All rights reserved. <a
-                        href="https://github.com/sarthakdev143">sarthakdev143</a></p>
-            </footer>
         </div>
+
+        <div id="profile-editing-ui-div">
+            <span onclick="hideProfileEditingPanel()" class="close material-symbols-outlined">
+                close
+            </span>
+            <form th:action="@{/updateProfile}" th:object="${userInfo}" method="post">
+                <input type="text" th:field="*{id}" hidden>
+                <input type="text" placeholder="Full Name" th:field="*{fullName}" required>
+                <input type="text" placeholder="Username" th:field="*{username}" required>
+                <input type="email" placeholder="Email" th:field="*{email}" required>
+                <input type="text" placeholder="Password" th:field="*{password}" required>
+                <button type="submit">Update User Info</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 User Panel. All rights reserved. <a href="https://github.com/sarthakdev143">sarthakdev143</a>
+        </p>
+    </footer>
     </div>
 
     <script src="/make-up/script.js"></script>
