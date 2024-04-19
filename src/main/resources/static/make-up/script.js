@@ -37,8 +37,8 @@ function showProfileEditingPanel() {
 
 function hideProfileEditingPanel() {
     profileEditingPanel.style.transform = "translate(-50%, 70%)";
-    profileEditingPanel.style.width = "70%";
-    profileEditingPanel.style.height = "80%";
+    profileEditingPanel.style.width = "75%";
+    profileEditingPanel.style.height = "85%";
     profileEditingPanel.style.opacity = 0;
 }
 

@@ -49,7 +49,12 @@
                     <h2>Profile</h2>
                     <div class="profile-content">
                         <div class="profile-picture">
-                            <img src="/img/default-pic.webp" alt="ProPic.">
+                            <div th:if="${userInfo.data != null}">
+                                <img th:src="@{/images/{id}(id=${userInfo.id})}" alt="Profile Picture">
+                            </div>
+                            <div th:if="${userInfo.data == null}">
+                                <img src="/img/default-pic.webp" alt="Default Profile Picture">
+                            </div>
                         </div>
                         <div class="profile-details">
                             <div class="details">
@@ -71,12 +76,13 @@
             <span onclick="hideProfileEditingPanel()" class="close material-symbols-outlined">
                 close
             </span>
-            <form th:action="@{/updateProfile}" th:object="${userInfo}" method="post">
+            <form th:action="@{/updateProfile}" th:object="${userInfo}" method="post" enctype="multipart/form-data">
                 <input type="text" th:field="*{id}" hidden>
                 <input type="text" placeholder="Full Name" th:field="*{fullName}" required>
                 <input type="text" placeholder="Username" th:field="*{username}" required>
                 <input type="email" placeholder="Email" th:field="*{email}" required>
                 <input type="text" placeholder="Password" th:field="*{password}" required>
+                <input type="file" name="imageFile">
                 <button type="submit">Update User Info</button>
             </form>
         </div>
