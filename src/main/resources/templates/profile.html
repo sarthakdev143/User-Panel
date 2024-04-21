@@ -33,7 +33,7 @@
                         <span>Are You Sure You Wanna Delete Your Account ?</span>
                     </p>
                     <p class="line-2 flex">
-                        <a style="color: red;" th:href="@{/delete-account}" class="yes">yes</a>
+                        <a id="yesLink" style="color: red;" th:href="@{/delete-account/{id}(id=${userInfo.id})}" class="yes">yes</a>
                         <a style="color: rgb(0, 191, 255);" href="#" class="no">no</a>
                     </p>
                 </div>
@@ -75,6 +75,9 @@
                             <span style="display: none;" onclick="showProPic()" class="close material-symbols-outlined">
                                 close
                             </span>
+                            <!-- 
+                                Isspe Bhi Kaam Karna Hai Abhii...
+                             -->
                         </div>
                         <div class="profile-details">
                             <div class="details">
@@ -112,6 +115,10 @@
                 <button class="pointer" type="submit">Save Changes</button>
             </form>
         </div>
+    </div>
+
+    <div id="cover">
+        <h1>Account Deleted</h1>
     </div>
 
     <script src="/make-up/script.js"></script>

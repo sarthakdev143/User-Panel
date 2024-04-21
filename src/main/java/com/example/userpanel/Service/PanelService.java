@@ -31,4 +31,8 @@ public class PanelService {
     public PanelBean findById(Long id) {
         return repo.findById(id).get();
     }
+
+    public void deleteById(Long id) {
+        repo.deleteById(id);
+    }
 }

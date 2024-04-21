@@ -50,4 +50,10 @@ public class PanelCont {
                 .header(HttpHeaders.CONTENT_TYPE, panelBean.getImageType())
                 .body(panelBean.getData());
     }
+
+    @GetMapping("/delete-account/{id}")
+    public String deleteAccount(@PathVariable Long id) {
+        panelService.deleteById(id);
+        return "redirect:/";
+    }
 }

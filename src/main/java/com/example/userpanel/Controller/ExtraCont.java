@@ -29,16 +29,16 @@ public class ExtraCont {
         return "login";
     }
 
+    @GetMapping("/nav-to-login")
+    public String login() {
+        return "redirect:/";
+    }
+
     @GetMapping("/nav-to-signup")
     public String signup(Model model) {
         PanelBean SignUpObject = new PanelBean();
         model.addAttribute("signupObject", SignUpObject);
         return "sign-up";
-    }
-
-    @GetMapping("/nav-to-login")
-    public String login() {
-        return "redirect:/";
     }
 
     @PostMapping("/create-account")
