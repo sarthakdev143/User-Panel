@@ -42,3 +42,29 @@ function hideProfileEditingPanel() {
     profileEditingPanel.style.opacity = 0;
 }
 
+// Delete Account Section
+let deleteWarning = document.querySelector(".deleteAcc-div");
+let yes = document.querySelector(".yes");
+let no = document.querySelector(".no");
+let deleteAcc = document.querySelector(".deleteAcc");
+let dustbin = document.querySelector(".dustbin-icon");
+let showWarning = true;
+
+deleteAcc.addEventListener("click", () => {
+    if (showWarning == true) {
+        deleteWarning.style.marginLeft = "0";
+        showWarning = false;
+    } else {
+        deleteWarning.style.marginLeft = "-100%";
+        showWarning = true;
+    }
+
+    no.addEventListener("click", () => {
+        setTimeout(() => {
+            deleteWarning.style.marginLeft = "-100%";
+        }, 600)
+
+        deleteWarning.style.scale = "0.9";
+        showWarning = true;
+    })
+})

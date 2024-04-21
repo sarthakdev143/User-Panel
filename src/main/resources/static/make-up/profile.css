@@ -71,10 +71,68 @@ body {
                 text-decoration: none;
                 font-size: 1rem;
                 font-weight: 400;
-                transition: color 0.3s ease;
+                transition: all 0.3s ease;
+                padding: 0.4rem;
 
-                &:hover {
-                    color: #ccc;
+                &:active {
+                    color: #9c9c9c;
+                }
+            }
+
+            .deleteAcc {
+                border-radius: 0.4rem;
+                /* background: red; */
+                display: flex;
+                align-items: center;
+                position: relative;
+                width: 9.5rem;
+                overflow: hidden;
+                
+                .icon {
+                    font-size: 1.5rem;
+                    position: absolute;
+                    right: 0.4rem;
+                    transition: margin ease 0.3s;
+                    margin-top: -4rem;
+                }
+                
+                &:hover .icon {
+                    margin-top: 0;
+                }
+            }
+        }
+        
+        .deleteAcc-div {
+            margin-left: -100%;
+            position: absolute;
+            width: 20rem;
+            height: fit-content;
+            padding: 1.5rem;
+            background: var(--darkBg2);
+            box-shadow: var(--box-shadow);
+            z-index: 1000;
+            align-items: center;
+            transition: all ease 0.3s;
+            
+            .line-1 {
+                width: 100%;
+                gap: 0.5rem;
+            }
+            
+            .line-2 {
+                width: 70%;
+                justify-content: space-around;
+
+                a {
+                    transition: all ease 0.3s;
+                    text-decoration: none;
+                    border-radius: 0.4rem;
+                    padding: 0.5rem 1.25rem;
+                    text-transform: capitalize;
+                    
+                    &:hover {
+                        background: var(--darkBg);  
+                    }
                 }
             }
         }
@@ -150,6 +208,9 @@ body {
 
                 .profile-picture {
                     margin-right: 1.875rem;
+                    /* background: red; */
+                    border-radius: 50%;
+                    overflow: hidden;
 
                     img {
                         width: 7.5rem;
@@ -289,6 +350,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, 70%);
+    /* transform: translate(-50%, -50%); */
     z-index: 1000;
     background: var(--darkBg2);
     --padding: 4rem;
@@ -307,6 +369,46 @@ body {
 
         &:hover {
             background: var(--background-color2);
+        }
+    }
+
+    form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+
+        .input {
+            width: 20rem;
+            height: 3rem;
+            padding-left: 1rem;
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--body-text-color);
+            font-size: 1.2rem;
+        }
+
+        .border {
+            border-bottom: 0.1rem solid var(--body-text-color);
+        }
+
+        button {
+            width: 10rem;
+            height: 3rem;
+            border-radius: 0.8rem;
+            font-size: 1rem;
+            border: none;
+            background: var(--darkBg);
+            color: var(--body-text-color);
+            transition: all ease 0.3s;
+
+            &:hover {
+                background: var(--body-text-color);
+                color: var(--darkBg);
+            }
         }
     }
 }

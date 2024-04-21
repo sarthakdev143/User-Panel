@@ -35,6 +35,11 @@
     display: flex;
 }
 
+.fdc {
+    display: flex;
+    flex-direction: column;
+}
+
 .user-select-none {
     user-select: none;
     -moz-user-select: none;

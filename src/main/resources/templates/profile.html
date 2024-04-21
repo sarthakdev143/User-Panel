@@ -18,8 +18,25 @@
                 <h3>User Panel</h3>
             </div>
             <ul class="sidebar-nav">
-                <li><a href="#profile">Profile</a></li>
-                <li><a href="#settings">Settings</a></li>
+                <li><a href="#">Profile</a></li>
+                <li>
+                    <a class="deleteAcc" href="#">
+                        Delete Account
+                        <span class="dustbin-icon icon material-symbols-outlined">
+                            delete
+                        </span>
+                    </a>
+                </li>
+                <div class="deleteAcc-div fdc">
+                    <p class="line-1 fdc">
+                        <span>Deleting Account is Permanent, Hence Your Account Cannot Be Recoverd... </span>
+                        <span>Are You Sure You Wanna Delete Your Account ?</span>
+                    </p>
+                    <p class="line-2 flex">
+                        <a style="color: red;" th:href="@{/delete-account}" class="yes">yes</a>
+                        <a style="color: rgb(0, 191, 255);" href="#" class="no">no</a>
+                    </p>
+                </div>
             </ul>
         </nav>
 
@@ -48,13 +65,16 @@
                 <section id="profile" class="profile">
                     <h2>Profile</h2>
                     <div class="profile-content">
-                        <div class="profile-picture">
+                        <div class="profile-picture pointer">
                             <div th:if="${userInfo.data != null}">
                                 <img th:src="@{/images/{id}(id=${userInfo.id})}" alt="Profile Picture">
                             </div>
                             <div th:if="${userInfo.data == null}">
                                 <img src="/img/default-pic.webp" alt="Default Profile Picture">
                             </div>
+                            <span style="display: none;" onclick="showProPic()" class="close material-symbols-outlined">
+                                close
+                            </span>
                         </div>
                         <div class="profile-details">
                             <div class="details">
@@ -70,6 +90,12 @@
                     </div>
                 </section>
             </main>
+
+            <footer class="footer">
+                <p>&copy; 2024 User Panel. All rights reserved. <a
+                        href="https://github.com/sarthakdev143">sarthakdev143</a>
+                </p>
+            </footer>
         </div>
 
         <div id="profile-editing-ui-div">
@@ -77,21 +103,15 @@
                 close
             </span>
             <form th:action="@{/updateProfile}" th:object="${userInfo}" method="post" enctype="multipart/form-data">
-                <input type="text" th:field="*{id}" hidden>
-                <input type="text" placeholder="Full Name" th:field="*{fullName}" required>
-                <input type="text" placeholder="Username" th:field="*{username}" required>
-                <input type="email" placeholder="Email" th:field="*{email}" required>
-                <input type="text" placeholder="Password" th:field="*{password}" required>
-                <input type="file" name="imageFile">
-                <button type="submit">Update User Info</button>
+                <input class="input border" type="text" th:field="*{id}" hidden>
+                <input class="input border" type="text" placeholder="Full Name" th:field="*{fullName}" required>
+                <input class="input border" type="text" placeholder="Username" th:field="*{username}" required>
+                <input class="input border" type="email" placeholder="Email" th:field="*{email}" required>
+                <input class="input border" type="text" placeholder="Password" th:field="*{password}" required>
+                <input class="input imgInp" type="file" name="imageFile">
+                <button class="pointer" type="submit">Save Changes</button>
             </form>
         </div>
-    </div>
-
-    <footer class="footer">
-        <p>&copy; 2024 User Panel. All rights reserved. <a href="https://github.com/sarthakdev143">sarthakdev143</a>
-        </p>
-    </footer>
     </div>
 
     <script src="/make-up/script.js"></script>

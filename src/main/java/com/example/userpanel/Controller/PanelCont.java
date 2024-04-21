@@ -24,13 +24,6 @@ public class PanelCont {
         return "redirect:/";
     }
 
-    // @PostMapping("/updateProfile")
-    // public String updateProfile(@ModelAttribute("userInfo") PanelBean PanelBean)
-    // {
-    // panelService.save(PanelBean);
-    // return "profile";
-    // }
-
     @PostMapping("/updateProfile")
     public String updateProfile(@ModelAttribute("userInfo") PanelBean panelBean,
             @RequestParam("imageFile") MultipartFile file) {
@@ -39,8 +32,8 @@ public class PanelCont {
                 panelBean.setData(file.getBytes());
                 panelBean.setImageType(file.getContentType());
             } catch (Exception e) {
-                System.out.println("\n\nException : " + e);
                 // Handle the exception as needed
+                System.out.println("\n\nException : " + e);
             }
         }
         panelService.save(panelBean);
