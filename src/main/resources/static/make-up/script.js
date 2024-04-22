@@ -67,4 +67,8 @@ deleteAcc.addEventListener("click", () => {
         deleteWarning.style.scale = "0.9";
         showWarning = true;
     })
+    
+    setTimeout(() => {
+        deleteWarning.style.scale = "1";
+    }, 601);
 })
